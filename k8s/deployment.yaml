@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enterprise-ai-operations-agent
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: enterprise-ai-operations-agent
+  template:
+    metadata:
+      labels:
+        app: enterprise-ai-operations-agent
+    spec:
+      containers:
+      - name: ops-agent
+        image: enterprise-ai-operations-agent:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: OPS_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: ops-agent-secrets
+              key: api-key
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: enterprise-ai-operations-agent
+spec:
+  selector:
+    app: enterprise-ai-operations-agent
+  ports:
+  - port: 8000
+    targetPort: 8000

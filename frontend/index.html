@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Enterprise AI Operations Agent</title><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header><div><h1>Enterprise AI Operations Agent</h1><p>Monitoring • AI Analysis • Incident Response • Safe Remediation</p></div><span id="health" class="pill">Checking...</span></header>
+<main>
+<div class="cards">
+<div class="card"><small>CPU</small><b id="cpu">—</b></div><div class="card"><small>MEMORY</small><b id="memory">—</b></div>
+<div class="card"><small>DISK</small><b id="disk">—</b></div><div class="card"><small>INCIDENTS</small><b id="count">—</b></div>
+</div>
+<div class="grid">
+<section class="panel"><div class="head"><h2>AI Operations Analysis</h2><button onclick="analyze()">Analyze</button></div><pre id="analysis">Loading...</pre></section>
+<section class="panel"><div class="head"><h2>Application Logs</h2><button onclick="loadLogs()">Refresh</button></div><pre id="logs">Loading...</pre></section>
+</div>
+<section class="panel"><div class="head"><h2>Incident Management</h2><div><button onclick="createIncidents()">Create Incident</button><button onclick="loadIncidents()">Refresh</button></div></div><div id="incidents">Loading...</div></section>
+</main><script src="/static/app.js"></script></body></html>
